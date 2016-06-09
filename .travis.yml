@@ -1,4 +1,31 @@
+sudo: false
 language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
 node_js:
-  - 0.11.16
-  - 0.12.2
+  - '5'
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+before_install:
+  - npm i -g npm
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+before_script:
+  - npm prune
+after_success:
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && npm run semantic-release'
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
+services:
+  - mongodb
+  - redis
+  - riak

@@ -107,6 +107,31 @@ describe('Restify URL without prefix', function () {
   });
 });
 
+describe('Resityf URL should not prefix or version the url', function(){
+  before(function () {
+    this.server = restify.createServer();
+    this.server.pre(versioning({ blacklist: ['/healthcheck']}));
+
+    this.agent = request(this.server);
+  });
+
+  before(function () {
+    this.server.get({ path: '/healthcheck', version: '1.0.0' }, function (req, res) {
+      res.send({ message: 'blacklisted endpoint' });
+    });
+  });
+
+  it('should call blacklisted route on root', function (done) {
+    this.agent.get('/healthcheck').expect(200, function (err, res) {
+      if (err) { return done(err); }
+      assert.equal(res.body.message, 'blacklisted endpoint');
+      done();
+    });
+  });
+
+});
+
+
 describe('Restify URL with prefix', function () {
   before(function () {
     this.server = restify.createServer();

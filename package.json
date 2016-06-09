@@ -1,16 +1,18 @@
 {
-  "name": "restify-url-semver",
-  "version": "1.0.1",
+  "name": "@vixlet/restify-url-semver",
+  "version": "0.0.0-semantic",
   "description": "Get restify version from URL and set as header",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test"
+    "test": "./node_modules/mocha/bin/mocha test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/markotom/restify-url-semver"
+    "url": "https://github.com/Vixlet/restify-url-semver"
   },
   "keywords": [
+    "vixlet",
     "restify",
     "version",
     "versioning",
@@ -20,12 +22,12 @@
     "semver",
     "API-Version"
   ],
-  "author": "Marco Godínez <markotom@gmail.com>",
-  "license": "MIT",
+  "author": "angello pozo",
+  "license": "Proprietary",
   "bugs": {
-    "url": "https://github.com/markotom/restify-url-semver/issues"
+    "url": "https://github.com/Vixlet/restify-url-semver/issues"
   },
-  "homepage": "https://github.com/markotom/restify-url-semver",
+  "homepage": "https://github.com/Vixlet/restify-url-semver",
   "devDependencies": {
     "mocha": "^2.2.5",
     "sinon": "^1.14.1",
