@@ -7,8 +7,16 @@ module.exports = function (options) {
   options = options || {};
 
   options.prefix = options.prefix || '';
+  options.blacklist = options.blacklist || [];
 
   return function (req, res, next) {
+
+    options.blacklist.forEach(function(item){
+        if(item === req.url) {
+          return next();
+        }
+    });
+
     req.originalUrl = req.url;
     req.url = req.url.replace(options.prefix, '');
 
