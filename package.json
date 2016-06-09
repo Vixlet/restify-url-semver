@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "restify": "^3.0.3",
+    "semantic-release": "4.3.5",
     "semver": "^4.3.4"
   }
 }
