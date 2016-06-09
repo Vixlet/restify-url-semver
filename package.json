@@ -22,8 +22,8 @@
     "semver",
     "API-Version"
   ],
-  "author": "angello pozo",
-  "license": "Proprietary",
+  "author": "Marco Godínez <markotom@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Vixlet/restify-url-semver/issues"
   },
